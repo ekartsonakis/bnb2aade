@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: bnb2aade-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-bnb2aade}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-bnb2aade_dev}
+      POSTGRES_DB: ${POSTGRES_DB:-bnb2aade}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
